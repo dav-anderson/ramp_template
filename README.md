@@ -18,8 +18,10 @@ To build for android you must first have `cargo-apk` installed on your system.
 
 Once you have installed cargo-apk, then determine the permissions your app requires and specify them in the `Cargo.toml` under the Cargo APK config section.
 
-```[[package.metadata.android.uses_permission]]
-name = "android.permission.INTERNET"```
+```
+[[package.metadata.android.uses_permission]]
+name = "android.permission.INTERNET"
+```
 
 By default, this template already enables internet permission as shown above.
 
@@ -57,9 +59,11 @@ Add IOS targets to rustup
 
 Ensure the `Cargo.toml` specifies the a lib section (this has been provided by default)
 
-```[lib]
+```
+[lib]
 name = "library_name"
-crate-type = ["cdylib"] # or "staticlib" if you want a static library rather than dynamic```
+crate-type = ["cdylib"] # or "staticlib" if you want a static library rather than dynamic
+```
 
 Build your library with cargo lipo (specify a release build with the proper flag: `--release`)
 
