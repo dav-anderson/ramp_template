@@ -28,6 +28,10 @@ After configuring the proper permissions you can build the apk with...
 
 By default, your build output will appear in `webgpu/target/debug/apk` . Here, you can verify that your permissions were set correctly by viewing the AndroidManifest.xml in the output directory.
 
+If you wish to build for release, you must run
+
+```make android_release```
+
 ## IOS
 
 prerequisites

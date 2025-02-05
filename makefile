@@ -6,6 +6,10 @@ android:
 	rm -f $(BIN)
 	cargo apk build
 
+android_release:
+	rm -f $(BIN)
+	cargo apk build --release
+
 #Build for IOS
 
 #Build for Desktop
