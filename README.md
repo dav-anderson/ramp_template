@@ -5,19 +5,26 @@ Before building for Android or IOS you will need to first remove the bin from th
 ## Android
 
 prerequisites
+
 -Rust toolchain
+
 -Android NDK & SDK installed and configured in PATH
+
+-Keystore
 
 To build for android you must first have `cargo-apk` installed on your system. 
 
 ```cargo install cargo-apk```
 
 Once you have installed cargo-apk, then determine the permissions your app requires and specify them in the `Cargo.toml` under the Cargo APK config section.
-By default, this wrapper already enables internet permission.
+```[[package.metadata.android.uses_permission]]
+name = "android.permission.INTERNET"```
+
+By default, this template already enables internet permission as shown above.
 
 After configuring the proper permissions you can build the apk with...
 
-```cargo apk build```
+```make android```
 
 By default, your build output will appear in `webgpu/target/debug/apk` . Here, you can verify that your permissions were set correctly by viewing the AndroidManifest.xml in the output directory.
 
@@ -45,9 +52,9 @@ Add IOS targets to rustup
 
 Ensure the `Cargo.toml` specifies the a lib section (this has been provided by default)
 
-```[lib]```
-```name = "library_name"```
-```crate-type = ["cdylib"] # or "staticlib" if you want a static library rather than dynamic```
+```[lib]
+name = "library_name"
+crate-type = ["cdylib"] # or "staticlib" if you want a static library rather than dynamic```
 
 Build your library with cargo lipo (specify a release build with the proper flag: `--release`)
 
@@ -82,3 +89,7 @@ cd ios
 make clean
 
 make run
+
+## Desktop
+
+`make desktop`
