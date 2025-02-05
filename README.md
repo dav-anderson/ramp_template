@@ -17,6 +17,7 @@ To build for android you must first have `cargo-apk` installed on your system.
 ```cargo install cargo-apk```
 
 Once you have installed cargo-apk, then determine the permissions your app requires and specify them in the `Cargo.toml` under the Cargo APK config section.
+
 ```[[package.metadata.android.uses_permission]]
 name = "android.permission.INTERNET"```
 
