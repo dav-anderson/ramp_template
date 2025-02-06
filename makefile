@@ -1,3 +1,7 @@
+#ignore directores
+.PHONY: android
+.PHONY: ios
+
 #variables
 BIN = src/main.rs
 
