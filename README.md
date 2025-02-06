@@ -16,14 +16,13 @@ To build for android you must first have `cargo-apk` installed on your system.
 
 ```cargo install cargo-apk```
 
-Once you have installed cargo-apk, then determine the permissions your app requires and specify them in the `Cargo.toml` under the Cargo APK config section.
+Once you have installed cargo-apk, then determine the permissions your app requires and specify them in `android/app/manifests/AndroidManifest.xml`.
 
 ```
-[[package.metadata.android.uses_permission]]
-name = "android.permission.INTERNET"
+<uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-By default, this template already enables internet permission as shown above.
+By default, this template already enables internet permission as shown above, you may add as many additional permissions as your app requires.
 
 After configuring the proper permissions you can build the apk with...
 
@@ -31,7 +30,7 @@ After configuring the proper permissions you can build the apk with...
 
 By default, your build output will appear in `webgpu/target/debug/apk` . Here, you can verify that your permissions were set correctly by viewing the AndroidManifest.xml in the output directory.
 
-If you wish to build for release, you must run
+If you wish to build for release, you must first configure a release key in your keystore and in the AndroidManifest.xml and then run
 
 ```make android_release```
 
@@ -102,3 +101,17 @@ make run
 ## Desktop
 
 `make desktop`
+
+## Housekeeping
+
+Because we cannot build apk bundles with a main.rs file present (cargo always attempts to build a binary in this case), but main.rs is required when building a binary for a desktop environment, a makefile has been created to handle insertion and removal of the main.rs and it's contents where appropriate.
+
+If you wish to manually add or remove the main function from your project for some reason, you can do so with...
+
+`make add_bin`
+
+or
+
+`make remove_bin`
+
+However, this is not necessary for you to manually add or remove main.rs with these commands before building for your target environment as long as you use the `make <target>` processes outlined above. Please keep in mind, because of this automated process, users are strongly discouraged from attempt to edit the contents of main.rs, as these changes will be lost when building with makefile unless you were to edit the shell script contained in `makefile` as well.
