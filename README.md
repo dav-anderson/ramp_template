@@ -12,7 +12,7 @@ Please note, these instructions are currently written primarily for a Unix opera
 
 -Keystore
 
-## Build APK
+### Build APK
 
 To build for android you must first have `cargo-apk` installed on your system. 
 
