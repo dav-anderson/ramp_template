@@ -23,3 +23,14 @@ desktop:
     echo '}' >> $(BIN)
 
 #Build for WASM
+
+#add binary file
+add_bin:
+	echo 'fn main() {' > $(BIN) && \
+    echo '    main::desktop_main()' >> $(BIN) && \
+    echo '}' >> $(BIN)
+
+#Remove binary file
+remove_bin:
+	rm -f $(BIN)
+
