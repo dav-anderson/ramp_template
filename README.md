@@ -1,16 +1,18 @@
 # Web GPU
 
-Before building for Android or IOS you will need to first remove the bin from the cargo.toml and/or the main.rs file from the project tree.
+Please note, these instructions are currently written primarily for a Unix operating system, with the exception of the IOS build which is written for MacOS.
 
 ## Android
 
-prerequisites
+### Prerequisites
 
 -Rust toolchain
 
 -Android NDK & SDK installed and configured in PATH
 
 -Keystore
+
+## Build APK
 
 To build for android you must first have `cargo-apk` installed on your system. 
 
@@ -34,9 +36,26 @@ If you wish to build for release, you must first configure a release key in your
 
 ```make android_release```
 
+### Hot Loading APK on an Android Device:
+
+If you wish to test your android apk on an android phone via usb tether, you will first need to install adb
+
+ `sudo apt install android-tools-adb`
+
+ Once you have installed adb you will need to unlock the device and put it into developer debugging mode in order to hotload your apk. To do this you will need to navigate to Settings > About Device, or Settings > About > Software Information, or something similar. You are looking for an "About Phone" section, which you should rapidly tap to enable developer mode. You may now connect your device via usb tether and be sure to enable access to phone data via the prompt on the device after connecting.
+
+You can now run `adb devices` to verify that your device is recognized by your computer. You can now install your apk with 
+
+`adb install -r /target/debug/apk/<projectname>.apk`
+
+Once the streaming install has completed you can test your app with (the package name will be something like org.packagename.example/android.app.NativeActivity)
+
+`adb shell am start -n <package name configured in manifest>`
+
+
 ## IOS
 
-prerequisites
+### Prerequisites
 -Rust Toolchain
 -Xcode
 

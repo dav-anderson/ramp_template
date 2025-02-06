@@ -15,14 +15,19 @@ android_release:
 	cargo apk build --release
 
 #Build for IOS
+ios:
+	echo todo
 
 #Build for Desktop
 desktop:
 	echo 'fn main() {' > $(BIN) && \
     echo '    main::desktop_main()' >> $(BIN) && \
     echo '}' >> $(BIN)
+	echo todo
 
 #Build for WASM
+wasm:
+	echo todo
 
 #add binary file
 add_bin:
