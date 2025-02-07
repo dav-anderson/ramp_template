@@ -19,8 +19,11 @@ crate-type=["staticlib", "cdylib", "rlib"]
 package = "com.webgpu.pkg"
 build_targets = [ "aarch64-linux-android" ]
 res = [ "android/app/src/main/res" ]
+assets = "assets"
 
-label = "Application Name"
+[package.metadata.android.application]
+icon = "@mipmap/ic_launcher"
+label = "ramp_template"
 
 # See https://developer.android.com/guide/topics/manifest/meta-data-element
 #

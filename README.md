@@ -32,7 +32,15 @@ After configuring the proper permissions you can build the apk with...
 
 By default, your build output will appear in `webgpu/target/debug/apk` . Here, you can verify that your permissions were set correctly by viewing the AndroidManifest.xml in the output directory.
 
-If you wish to build for release, you must first configure a release key in your keystore and in the AndroidManifest.xml and then run
+If you wish to build for release, you must first configure a release key in your keystore and in the `Cargo.toml` as follows
+
+```
+[package.metadata.android.signing.<profile>]
+path = "relative/or/absolute/path/to/my.keystore"
+keystore_password = "password"
+```
+
+ and then run
 
 ```make android_release```
 
