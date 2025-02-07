@@ -24,6 +24,14 @@ desktop:
     echo '    main::desktop_main()' >> $(BIN) && \
     echo '}' >> $(BIN)
 	echo todo
+	cargo build
+
+desktop_release:
+	echo 'fn main() {' > $(BIN) && \
+    echo '    main::desktop_main()' >> $(BIN) && \
+    echo '}' >> $(BIN)
+	echo todo
+	cargo build --release
 
 #Build for WASM
 wasm:

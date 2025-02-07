@@ -153,7 +153,13 @@ make run
 
 ## Desktop
 
+To build for desktop
+
 `make desktop`
+
+To build for desktop release
+
+`make desktop_release`
 
 ## Housekeeping
 
