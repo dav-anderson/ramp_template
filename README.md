@@ -18,7 +18,7 @@ To build for android you must first have `cargo-apk` installed on your system.
 
 ```cargo install cargo-apk```
 
-Once you have installed cargo-apk, then determine the permissions your app requires and specify them in `android/app/manifests/AndroidManifest.xml`.
+Once you have installed cargo-apk, then determine the permissions your app requires and specify them in `android/app/src/main/AndroidManifest.xml`.
 
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -52,11 +52,27 @@ Once the streaming install has completed you can test your app with (the package
 
 `adb shell am start -n <package name configured in manifest>`
 
+## Configuring Icons
+
+In order to configure icons, each file must be named "ic_launcher.png" and must be placed the appropriate directories located in `/android/app/src/main/res/`. The respective dimensions for each directory is as follows.
+
+`/midmap-mdpi` = 48 x 48
+
+`/mipmap-hdpi` = 72 x 72
+
+`/mipmap-xhdpi` = 96 x 96
+
+`/mipmap-xxhdpi` = 144 x 144
+
+`/mipmap-xxxhdpi` = 192 x 192
+
 
 ## IOS
 
 ### Prerequisites
+
 -Rust Toolchain
+
 -Xcode
 
 To build for IOS you must first have `cargo-lipo` installed on your system.
