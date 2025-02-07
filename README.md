@@ -52,7 +52,7 @@ Once the streaming install has completed you can test your app with (the package
 
 `adb shell am start -n <package name configured in manifest>`
 
-## Configuring Icons
+### Configuring Icons
 
 In order to configure icons, each file must be named "ic_launcher.png" and must be placed the appropriate directories located in `/android/app/src/main/res/`. The respective dimensions for each directory is as follows.
 
