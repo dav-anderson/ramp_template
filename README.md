@@ -80,6 +80,10 @@ In order to configure icons, each file must be named "ic_launcher.png" and must 
 
 In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `/android/app/src/main/res/font/`. In addition, each font should be added to the .xml file within the `/font` directory. 
 
+### Assets
+
+The path to the assets directory is simply `/assets`. Anything placed here will be included in the apk, this path is configured in the `Cargo.toml`
+
 
 ## IOS
 
