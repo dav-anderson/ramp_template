@@ -48,9 +48,11 @@ You can now run `adb devices` to verify that your device is recognized by your c
 
 `adb install -r /target/debug/apk/<projectname>.apk`
 
-Once the streaming install has completed you can test your app with (the package name will be something like org.packagename.example/android.app.NativeActivity)
+Once the streaming install has completed you can test your app in shell with (the package name will be something like org.packagename.example/android.app.NativeActivity). 
 
-`adb shell am start -n <package name configured in manifest>`
+`adb shell am start -n <package_name/android:name>`
+
+Alternatively you may search for your app on the phones application tab and tap to run like you would normally.
 
 ### Configuring Icons
 
