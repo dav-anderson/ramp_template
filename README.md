@@ -54,7 +54,7 @@ Once the streaming install has completed you can test your app with (the package
 
 ### Configuring Icons
 
-In order to configure icons, each file must be named "ic_launcher.png" and must be placed the appropriate directories located in `/android/app/src/main/res/`. The respective dimensions for each directory is as follows.
+In order to configure icons, each file must be named "ic_launcher.png" and must be placed within the appropriate directories located in `/android/app/src/main/res/`. The respective dimensions for each directory is as follows.
 
 `/midmap-mdpi` = 48 x 48
 
@@ -65,6 +65,10 @@ In order to configure icons, each file must be named "ic_launcher.png" and must 
 `/mipmap-xxhdpi` = 144 x 144
 
 `/mipmap-xxxhdpi` = 192 x 192
+
+### Configuring Fonts
+
+In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `/android/app/src/main/res/font/`. In addition, each font should be added to the .xml file within the `/font` directory. 
 
 
 ## IOS
