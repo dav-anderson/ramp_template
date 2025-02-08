@@ -3,9 +3,9 @@
 .PHONY: ios
 
 #Variables
-BIN = src/main.rs
-AN_IC = assets/icons/android_icon
-AN_IC_TAR = android/app/src/main/res/
+BIN =src/main.rs
+AN_IC =assets/icons/android_icon
+AN_IC_TAR =android/app/src/main/res/
 
 #Functions
 define create_binary
@@ -26,11 +26,11 @@ define copy_if_exists
 endef
 
 define android_icons
-	$(call copy_if_exists $(AN_IC)48 $(AN_IC_TAR)mipmap-mdpi/xc_launcher.png)
-	$(call copy_if_exists $(AN_IC)72 $(AN_IC_TAR)mipmap-hdpi/xc_launcher.png)
-	$(call copy_if_exists $(AN_IC)96 $(AN_IC_TAR)-xhdpi/xc_launcher.png)
-	$(call copy_if_exists $(AN_IC)144 $(AN_IC_TAR)mipmap-xxhdpi/xc_launcher.png)
-	$(call copy_if_exists $(AN_IC)192 $(AN_IC_TAR)mipmap-xxxhdpi/xc_launcher.png)
+	$(call copy_if_exists, $(AN_IC)48.png, $(AN_IC_TAR)mipmap-mdpi/xc_launcher.png)
+	$(call copy_if_exists, $(AN_IC)72.png, $(AN_IC_TAR)mipmap-hdpi/xc_launcher.png)
+	$(call copy_if_exists, $(AN_IC)96.png, $(AN_IC_TAR)mipmap-xhdpi/xc_launcher.png)
+	$(call copy_if_exists, $(AN_IC)144.png, $(AN_IC_TAR)mipmap-xxhdpi/xc_launcher.png)
+	$(call copy_if_exists, $(AN_IC)192.png, $(AN_IC_TAR)mipmap-xxxhdpi/xc_launcher.png)
 endef
 
 
