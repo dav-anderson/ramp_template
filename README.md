@@ -62,27 +62,27 @@ Once the streaming install has completed you can test your app in shell with (th
 
 Alternatively you may search for your app on the phones application tab and tap to run like you would normally.
 
-### Configuring Icons
+### Configuring App Icons
 
-In order to configure icons, each file must be named "ic_launcher.png" and must be placed within the appropriate directories located in `/android/app/src/main/res/`. The respective dimensions for each directory is as follows.
+In order to configure icons, each file must be named "android_iconXX.png" where "XX" refers to the resolution of the icon. The file must be placed within the  `assets/icons/` directory. The required dimensions are as follows. Icons are handled automatically by the makefile.
 
-`/midmap-mdpi` = 48 x 48
+`android_icon48.png` = 48 x 48
 
-`/mipmap-hdpi` = 72 x 72
+`android_icon72.png` = 72 x 72
 
-`/mipmap-xhdpi` = 96 x 96
+`android_icon96.png` = 96 x 96
 
-`/mipmap-xxhdpi` = 144 x 144
+`android_icon144.png` = 144 x 144
 
-`/mipmap-xxxhdpi` = 192 x 192
+`android_icon192.png` = 192 x 192
 
 ### Configuring Fonts
 
-In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `/android/app/src/main/res/font/`. In addition, each font should be added to the .xml file within the `/font` directory. 
+In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `resources/fonts/` directory.
 
-### Assets
+### Images
 
-The path to the assets directory is simply `/assets`. Anything placed here will be included in the apk, this path is configured in the `Cargo.toml`
+The path to the images directory is simply `resources/images`. Images placed here will be included in the apk, this path is configured with the `Cargo.toml`
 
 
 ## IOS
