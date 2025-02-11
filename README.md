@@ -18,10 +18,11 @@ To build for android you must first have `cargo-apk` installed on your system.
 
 ```cargo install cargo-apk```
 
-Once you have installed cargo-apk, then determine the permissions your app requires and specify them in `android/app/src/main/AndroidManifest.xml`.
+Once you have installed cargo-apk, then determine the permissions your app requires and specify them in `Cargo.toml`.
 
 ```
-<uses-permission android:name="android.permission.INTERNET"/>
+[[package.metadata.android.uses_permission]]
+name = "android.permission.INTERNET"
 ```
 
 By default, this template already enables internet permission as shown above, you may add as many additional permissions as your app requires.
@@ -64,7 +65,7 @@ Alternatively you may search for your app on the phones application tab and tap 
 
 ### Configuring App Icons
 
-In order to configure icons, each file must be named "android_iconXX.png" where "XX" refers to the resolution of the icon. The file must be placed within the  `assets/icons/` directory. The required dimensions are as follows. Icons are handled automatically by the makefile. Sample icons have been provided.
+In order to configure icons, each file must be named "android_iconXX.png" where "XX" refers to the resolution of the icon. The file must be placed within the  `assets/resources/icons` directory. The required dimensions are as follows. Icons are handled automatically by the makefile. Sample icons have been provided.
 
 `android_icon48.png` = 48 x 48
 
@@ -82,7 +83,7 @@ In order to configure fonts, each file must be named `<font_name>.ttf` and must 
 
 ### Images
 
-The path to the images directory is simply `resources/images`. Images placed here will be included in the apk, a sample image has been provided.
+The path to the images directory is simply `assets/images`. Images placed here will be included in the apk, a sample image has been provided.
 
 
 ## IOS

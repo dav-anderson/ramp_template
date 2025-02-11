@@ -4,7 +4,7 @@
 
 #Variables
 BIN =src/main.rs
-AN_IC =assets/icons/android_icon
+AN_IC =assets/resources/icons/android_icon
 AN_IC_TAR =android/app/src/main/res/
 
 #Functions
