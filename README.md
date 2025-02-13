@@ -6,6 +6,16 @@ Please note, these instructions are currently written primarily for a Unix opera
 
 -Rust toolchain
 
+The easiest way to install the rust toolchain is with the following `rustup` script
+
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+Restart your terminal and verify that rust and cargo are installed with
+
+`rustc --version`
+
+`cargo --version`
+
 ## Android
 
 ### Prerequisites
