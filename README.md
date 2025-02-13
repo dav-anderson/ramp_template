@@ -114,6 +114,8 @@ The path to the images directory is simply `assets/images`. Images placed here w
 
 -MacOS
 
+-Homebrew
+
 -Xcode
 
 To build for IOS you must first have `cargo-lipo` installed on your system.
@@ -174,6 +176,26 @@ make clean
 
 make run
 
+## Desktop for MacOS - WIP
+
+### Prerequisites
+
+-MacOS
+
+-Homebrew
+
+-Xcode
+
+WIP
+
+### Building the Binary
+
+WIP
+
+`make desktop_macos`
+
+`make desktop_macos_release`
+
 ## Desktop for Linux
 
 ### Building the Binary
@@ -224,20 +246,6 @@ WIP
 `make desktop_windows`
 
 `make_desktop_windows_release`
-
-## Desktop for MacOS - WIP
-
-### Prerequisites
-
-WIP
-
-### Building the Binary
-
-WIP
-
-`make desktop_macos`
-
-`make desktop_macos_release`
 
 ## Web Assembly - WIP
 
