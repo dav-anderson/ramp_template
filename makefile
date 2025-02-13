@@ -51,7 +51,6 @@ desktop_macos_release:
 	echo $(TODO)
 
 desktop_linux:
-	echo $(TODO)
 	cargo build
 
 desktop_linux_release:
@@ -59,9 +58,12 @@ desktop_linux_release:
 
 desktop_windows:
 	echo $(TODO)
+	cargo build --target x86_64-pc-windows-msvc
 
 desktop_windows_release:
 	echo $(TODO)
+	cargo build --release --target x86_64-pc-windows-msvc
+
 
 #Build for WASM
 wasm:

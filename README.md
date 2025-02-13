@@ -24,6 +24,10 @@ Restart your terminal and verify that rust and cargo are installed with
 
 -Keystore
 
+-Install the required build target
+
+`rusupt target add aarch64-linux-android`
+
 ### Build APK
 
 To build for android you must first have `cargo-apk` installed on your system. 
@@ -166,7 +170,7 @@ make run
 
 ## Desktop for Linux
 
-### Building binary
+### Building the Binary
 
 To build for desktop on Unix systems
 
@@ -201,7 +205,47 @@ Once you have done this, run the following command in your terminal to link the 
 
 ## Desktop for Windows - WIP
 
+### Prerequisites
+
+-Install the required rustup build target
+
+`rustup target add x86_64-pc-windows-msvc`
+
+### Building the Binary
+
+WIP
+
+`make desktop_windows`
+
+`make_desktop_windows_release`
+
 ## Desktop for MacOS - WIP
 
+### Prerequisites
+
+WIP
+
+### Building the Binary
+
+WIP
+
+`make desktop_macos`
+
+`make desktop_macos_release`
+
 ## Web Assembly - WIP
+
+### Prerequisites
+
+WIP
+
+### Building the Binary
+
+WIP
+
+`make wasm`
+
+`make wasm_release`
+
+
 
