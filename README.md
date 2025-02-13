@@ -24,9 +24,15 @@ Restart your terminal and verify that rust and cargo are installed with
 
 -Keystore
 
--Install the required build target
+-Install the required build target for android devices
 
-`rusupt target add aarch64-linux-android`
+`rustup target add aarch64-linux-android`
+
+-(Optional) Install the required build target for Android device emulators
+
+`rustup target add i686-linux-android`
+
+`rustup target add x86_64-linux-android`
 
 ### Build APK
 
