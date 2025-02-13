@@ -86,7 +86,7 @@ In order to configure fonts, each file must be named `<font_name>.ttf` and must 
 The path to the images directory is simply `assets/images`. Images placed here will be included in the apk, a sample image has been provided.
 
 
-## IOS
+## IOS - WIP
 
 ### Prerequisites
 
@@ -144,7 +144,7 @@ Update "Library Search Paths" to include where your .a file is located
 
 Build and run your app on an IOS device or IOS simulator
 
-## IOS Updated
+### IOS Updated - WIP
 
 cd ios
 
@@ -152,12 +152,48 @@ make clean
 
 make run
 
-## Desktop
+## Desktop for Linux
 
-To build for desktop
+### Prerequisites
 
-`make desktop`
+-Rust toolchain
 
-To build for desktop release
+### Building binary
 
-`make desktop_release`
+To build for desktop on Unix systems
+
+`make desktop_linux`
+
+To build for desktop release on Unix Systems
+
+`make desktop_linux_release`
+
+In either case, you will find your binary at `/target/<release>/<project_name>`. Where `<release>` corresponds to either `'debug'` or `'release'` depending on which makefile commmand you run, and `<project_name>` corresponds to the package name in the `Cargo.toml`. 
+
+By default, running `make_desktop_linux` would output your binary at `/target/debug/webgpu`
+
+### Configuring Desktop Icon
+
+Linux Desktop Icons must be configured locally with a `.png` file. This file should be placed within `~/.local/share/icons`. 
+
+You will then need to create a `.desktop` file at `~/.local/share/applications/<project_name>.desktop` where `<project_name>` corresponds to the name you've chosen for your binary, by default this will be `webgpu`.
+
+The `.desktop` file should look similar to as follows:
+
+```
+[Desktop Entry]
+Name=<project_name>
+Exec=/path/to/binary
+Icon=<icon_name>
+Type=Application
+Categories=Utility
+```
+Once you have done this, run the following command in your terminal to link the desktop icon with your binary. 
+`update-desktop-database ~/.local/share/applications`
+
+## Desktop for Windows - WIP
+
+## Desktop for MacOS - WIP
+
+## Web Assembly - WIP
+

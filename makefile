@@ -5,6 +5,7 @@
 #Variables
 AN_IC =assets/resources/icons/android_icon
 AN_IC_TAR =android/app/src/main/res/
+TODO=this feature is not yet fully implemented
 
 #Functions
 
@@ -37,18 +38,35 @@ android_release:
 
 #Build for IOS
 ios:
-	echo todo
+	echo $(TODO)
+
+ios_release:
+	echo $(TODO)
 
 #Build for Desktop
-desktop:
-	echo todo
+desktop_macos:
+	echo $(TODO)
+
+desktop_macos_release:
+	echo $(TODO)
+
+desktop_linux:
+	echo $(TODO)
 	cargo build
 
-desktop_release:
-	echo todo
+desktop_linux_release:
 	cargo build --release
+
+desktop_windows:
+	echo $(TODO)
+
+desktop_windows_release:
+	echo $(TODO)
 
 #Build for WASM
 wasm:
-	echo todo
+	echo $(TODO)
+
+wasm_release:
+	echo $(TODO)
 
