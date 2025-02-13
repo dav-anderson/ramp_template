@@ -2,11 +2,13 @@
 
 Please note, these instructions are currently written primarily for a Unix operating system, with the exception of the IOS build which is written for MacOS.
 
-## Android
-
 ### Prerequisites
 
 -Rust toolchain
+
+## Android
+
+### Prerequisites
 
 -Android NDK & SDK installed and configured in PATH
 
@@ -90,7 +92,7 @@ The path to the images directory is simply `assets/images`. Images placed here w
 
 ### Prerequisites
 
--Rust Toolchain
+-MacOS
 
 -Xcode
 
@@ -153,10 +155,6 @@ make clean
 make run
 
 ## Desktop for Linux
-
-### Prerequisites
-
--Rust toolchain
 
 ### Building binary
 
