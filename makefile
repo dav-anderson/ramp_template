@@ -58,11 +58,9 @@ linux_release:
 	cargo build --release
 
 windows:
-	echo $(TODO)
 	cargo build --target x86_64-pc-windows-gnu
 
 windows_release:
-	echo $(TODO)
 	cargo build --release --target x86_64-pc-windows-gnu
 
 
