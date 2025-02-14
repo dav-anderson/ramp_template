@@ -20,7 +20,15 @@ Restart your terminal and verify that rust and cargo are installed with
 
 ### Prerequisites
 
--Android NDK & SDK installed and configured in PATH
+-Android NDK & SDK installed and manually configured in PATH
+
+`sudo apt install android-sdk android-ndk`
+
+Set your NDK path in your .bashrc or .zshrc
+
+Note: this configuration is merely an example, your actual configuration will vary based on the path to your NDK
+
+`export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/YOUR_NDK_VERSION`
 
 -Keystore
 
@@ -218,7 +226,7 @@ Linux Desktop Icons must be configured locally with a `.png` file. This file sho
 
 You will then need to create a `.desktop` file at `~/.local/share/applications/<project_name>.desktop` where `<project_name>` corresponds to the name you've chosen for your binary, by default this will be `webgpu`.
 
-The `.desktop` file should look similar to as follows:
+The `.desktop` file should look similar to as follows, ensure you fill in the proper details:
 
 ```
 [Desktop Entry]
@@ -237,15 +245,39 @@ Once you have done this, run the following command in your terminal to link the 
 
 -Install the required rustup build target
 
-`rustup target add x86_64-pc-windows-msvc`
+`rustup target add x86_64-pc-windows-gnu`
 
 ### Building the Binary
 
-WIP
+To compile the binary you must run the following command.
 
 `make desktop_windows`
 
+If you wish to compile a release version use this command instead.
+
 `make_desktop_windows_release`
+
+Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
+
+### Adding a Desktop Icon to your .EXE
+
+Determine what image you would like to use as your icon, this will typically be a .png file. You then must convert the `.png` to a `.ico` file type. Doing this requires you first install `imagemagick`.
+
+`sudo apt install imagemagick`
+
+Once you finish the installation place your png of choice in `assets/resources/icons` and run the following script from within the icons directory where `<target_image_file>` refers to the `.png` you wish to convert. 
+
+`convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 windows_icon.ico`
+
+Install `mingw-w64`:
+
+`sudo apt install mingw-w64`
+
+Compile the windows `app.rc` file:
+
+`x86_64-w64-mingw32-windres app.rc -O coff -o app.res`
+
+
 
 ## Web Assembly - WIP
 

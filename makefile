@@ -1,6 +1,7 @@
 #Ignore directores
 .PHONY: android
 .PHONY: ios
+.PHONY: windows
 
 #Variables
 AN_IC =assets/resources/icons/android_icon
@@ -44,25 +45,25 @@ ios_release:
 	echo $(TODO)
 
 #Build for Desktop
-desktop_macos:
+macos:
 	echo $(TODO)
 
-desktop_macos_release:
+macos_release:
 	echo $(TODO)
 
-desktop_linux:
+linux:
 	cargo build
 
-desktop_linux_release:
+linux_release:
 	cargo build --release
 
-desktop_windows:
+windows:
 	echo $(TODO)
-	cargo build --target x86_64-pc-windows-msvc
+	cargo build --target x86_64-pc-windows-gnu
 
-desktop_windows_release:
+windows_release:
 	echo $(TODO)
-	cargo build --release --target x86_64-pc-windows-msvc
+	cargo build --release --target x86_64-pc-windows-gnu
 
 
 #Build for WASM

@@ -2,13 +2,24 @@
 name = "webgpu"
 version = "0.1.0"
 edition = "2021"
+build = "build.rs"
 
 [dependencies]
 rust_on_rails2 = "0.1.1"
 
+[build-dependencies]
+winres = "0.1"
+
 [lib]
 name="main"
 crate-type=["staticlib", "cdylib", "rlib"]
+
+####################
+# winres config #
+####################
+
+[package.metadata.winres]
+OriginalFilename = "webgpu.exe"
 
 ####################
 # cargo apk config #
