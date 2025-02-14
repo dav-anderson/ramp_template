@@ -259,9 +259,9 @@ If you wish to compile a release version use this command instead.
 
 Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
 
-### Adding a Desktop Icon to your .EXE - WIP
+### Adding a Desktop Icon to your .EXE
 
-Determine what image you would like to use as your icon, this will typically be a .png file. You then must convert the `.png` to a `.ico` file type. Doing this requires you first install `imagemagick`.
+Determine what image you would like to use as your icon, this will typically be a .png file. If you wish, you may convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`.
 
 `sudo apt install imagemagick`
 
