@@ -16,6 +16,14 @@ Restart your terminal and verify that rust and cargo are installed with
 
 `cargo --version`
 
+### Configuring Fonts
+
+In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `resources/fonts/` directory. Sample fonts have been provided.
+
+### Images
+
+The path to the images directory is simply `assets/images`. Images placed here will be included in the apk, a sample image has been provided.
+
 ## Android
 
 ### Prerequisites
@@ -106,14 +114,6 @@ In order to configure icons, each file must be named "android_iconXX.png" where 
 `android_icon144.png` = 144 x 144
 
 `android_icon192.png` = 192 x 192
-
-### Configuring Fonts
-
-In order to configure fonts, each file must be named `<font_name>.ttf` and must be placed within `resources/fonts/` directory. Sample fonts have been provided.
-
-### Images
-
-The path to the images directory is simply `assets/images`. Images placed here will be included in the apk, a sample image has been provided.
 
 
 ## IOS - WIP
@@ -276,7 +276,6 @@ Install `mingw-w64`:
 Compile the windows `app.rc` file:
 
 `x86_64-w64-mingw32-windres app.rc -O coff -o app.res`
-
 
 
 ## Web Assembly - WIP
