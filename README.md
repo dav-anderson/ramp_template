@@ -239,7 +239,7 @@ Categories=Utility
 Once you have done this, run the following command in your terminal to link the desktop icon with your binary. 
 `update-desktop-database ~/.local/share/applications`
 
-## Desktop for Windows - WIP
+## Desktop for Windows
 
 ### Prerequisites
 
@@ -259,7 +259,7 @@ If you wish to compile a release version use this command instead.
 
 Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
 
-### Adding a Desktop Icon to your .EXE
+### Adding a Desktop Icon to your .EXE - WIP
 
 Determine what image you would like to use as your icon, this will typically be a .png file. You then must convert the `.png` to a `.ico` file type. Doing this requires you first install `imagemagick`.
 
