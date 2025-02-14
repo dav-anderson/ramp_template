@@ -5,6 +5,7 @@
 
 #Variables
 AN_IC =assets/resources/icons/android_icon
+FV_IC=assets/resources/icons/favicon.ico
 AN_IC_TAR =android/app/src/main/res/
 TODO=this feature is not yet fully implemented
 
@@ -66,8 +67,11 @@ windows_release:
 
 #Build for WASM
 wasm:
-	echo $(TODO)
+	$(call copy_if_exists,$(FV_IC),web)
+	cargo build --lib --target wasm32-unknown-unknown
 
 wasm_release:
-	echo $(TODO)
+	$(call copy_if_exists,$(FV_IC),web)
+	cargo build --lib --target wasm32-unknown-unknown --release
+
 

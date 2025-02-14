@@ -50,7 +50,21 @@ Note: this configuration is merely an example, your actual configuration will va
 
 `rustup target add x86_64-linux-android`
 
-### Build APK
+### (Optional) Configuring App Icons
+
+In order to configure icons, each file must be named "android_iconXX.png" where "XX" refers to the resolution of the icon. The file must be placed within the  `assets/resources/icons` directory. The required dimensions are as follows. Icons are handled automatically by the makefile. Sample icons have been provided.
+
+`android_icon48.png` = 48 x 48
+
+`android_icon72.png` = 72 x 72
+
+`android_icon96.png` = 96 x 96
+
+`android_icon144.png` = 144 x 144
+
+`android_icon192.png` = 192 x 192
+
+### Building for Android
 
 To build for android you must first have `cargo-apk` installed on your system. 
 
@@ -100,21 +114,6 @@ Once the streaming install has completed you can test your app in shell with (th
 `adb shell am start -n <package_name/android:name>`
 
 Alternatively you may search for your app on the phones application tab and tap to run like you would normally.
-
-### Configuring App Icons
-
-In order to configure icons, each file must be named "android_iconXX.png" where "XX" refers to the resolution of the icon. The file must be placed within the  `assets/resources/icons` directory. The required dimensions are as follows. Icons are handled automatically by the makefile. Sample icons have been provided.
-
-`android_icon48.png` = 48 x 48
-
-`android_icon72.png` = 72 x 72
-
-`android_icon96.png` = 96 x 96
-
-`android_icon144.png` = 144 x 144
-
-`android_icon192.png` = 192 x 192
-
 
 ## IOS - WIP
 
@@ -196,7 +195,7 @@ make run
 
 WIP
 
-### Building the Binary
+### Building for MacOS
 
 WIP
 
@@ -206,7 +205,7 @@ WIP
 
 ## Desktop for Linux
 
-### Building the Binary
+### Building for Linux
 
 To build for desktop on Unix systems
 
@@ -220,7 +219,7 @@ In either case, you will find your binary at `/target/<release>/<project_name>`.
 
 By default, running `make linux` would output your binary at `/target/debug/webgpu`
 
-### Configuring Desktop Icon
+### (Optional) Configuring Desktop Icon
 
 Linux Desktop Icons must be configured locally with a `.png` file. This file should be placed within `~/.local/share/icons`. 
 
@@ -247,7 +246,27 @@ Once you have done this, run the following command in your terminal to link the 
 
 `rustup target add x86_64-pc-windows-gnu`
 
-### Building the Binary
+-Install `mingw-w64`:
+
+`sudo apt install mingw-w64`
+
+### (Optional) Adding a Desktop Icon to your .EXE
+
+Determine what image you would like to use as your icon, this will typically be a .png file. If you already have your `.ico` rename it to `"windows_icon.ico"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`. 
+
+`sudo apt install imagemagick`
+
+Once you finish the installation place your png of choice in `assets/resources/icons` and run the following script from within the icons directory where `<target_image_file>` refers to the `.png` you wish to convert. 
+
+`convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 windows_icon.ico`
+
+
+Compile the windows `app.rc` file:
+
+`x86_64-w64-mingw32-windres app.rc -O coff -o app.res`
+
+
+### Building for Windows
 
 To compile the binary you must run the following command.
 
@@ -259,38 +278,38 @@ If you wish to compile a release version use this command instead.
 
 Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
 
-### Adding a Desktop Icon to your .EXE
+## Web Assembly - WIP
 
-Determine what image you would like to use as your icon, this will typically be a .png file. If you wish, you may convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`.
+### Prerequisites
+
+-Install the required rustup build target
+`rustup target add wasm32-unknown-unknown`
+
+### (Optional) Adding a Favicon WIP
+
+Determine what image you would like to use as your icon, this will typically be a .png file. If you already have your `.ico` rename it to `"favicon.ico"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`. 
 
 `sudo apt install imagemagick`
 
 Once you finish the installation place your png of choice in `assets/resources/icons` and run the following script from within the icons directory where `<target_image_file>` refers to the `.png` you wish to convert. 
 
-`convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 windows_icon.ico`
+`convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 favicon.ico`
 
-Install `mingw-w64`:
+### Building for WASM
 
-`sudo apt install mingw-w64`
-
-Compile the windows `app.rc` file:
-
-`x86_64-w64-mingw32-windres app.rc -O coff -o app.res`
-
-
-## Web Assembly - WIP
-
-### Prerequisites
-
-WIP
-
-### Building the Binary
-
-WIP
+To compile the library you must run the following command.
 
 `make wasm`
 
+If you wish to compile a release version use this command instead.
+
 `make wasm_release`
+
+To test your build cd into `web` and run your `index.html` in localhost with something like
+
+`busybox httpd -f -p 8080`
+
+This command should make the contents of `/web/index.html` viewable at `localhost::8080` in your browser.
 
 
 
