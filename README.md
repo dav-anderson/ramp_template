@@ -200,9 +200,9 @@ WIP
 
 WIP
 
-`make desktop_macos`
+`make macos`
 
-`make desktop_macos_release`
+`make macos_release`
 
 ## Desktop for Linux
 
@@ -210,15 +210,15 @@ WIP
 
 To build for desktop on Unix systems
 
-`make desktop_linux`
+`make linux`
 
 To build for desktop release on Unix Systems
 
-`make desktop_linux_release`
+`make linux_release`
 
 In either case, you will find your binary at `/target/<release>/<project_name>`. Where `<release>` corresponds to either `'debug'` or `'release'` depending on which makefile commmand you run, and `<project_name>` corresponds to the package name in the `Cargo.toml`. 
 
-By default, running `make_desktop_linux` would output your binary at `/target/debug/webgpu`
+By default, running `make linux` would output your binary at `/target/debug/webgpu`
 
 ### Configuring Desktop Icon
 
@@ -251,11 +251,11 @@ Once you have done this, run the following command in your terminal to link the 
 
 To compile the binary you must run the following command.
 
-`make desktop_windows`
+`make windows`
 
 If you wish to compile a release version use this command instead.
 
-`make_desktop_windows_release`
+`make windows_release`
 
 Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
 
