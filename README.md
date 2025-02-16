@@ -260,8 +260,10 @@ Once you finish the installation place your png of choice in `assets/resources/i
 
 `convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 windows_icon.ico`
 
+If you followed these steps correctly, you will now have a windows_icon.ico file located within `assets/resources/icons`
 
-Compile the windows `app.rc` file:
+
+Return to the project root and compile the windows `app.rc` file:
 
 `x86_64-w64-mingw32-windres app.rc -O coff -o app.res`
 
@@ -278,14 +280,14 @@ If you wish to compile a release version use this command instead.
 
 Once you have finished compiling your binary will be available at the following path: `/target/x86_64-pc-windows-gnu/<debug or release>/<project_name>.exe` 
 
-## Web Assembly - WIP
+## Web Assembly
 
 ### Prerequisites
 
 -Install the required rustup build target
 `rustup target add wasm32-unknown-unknown`
 
-### (Optional) Adding a Favicon WIP
+### (Optional) Adding a Favicon
 
 Determine what image you would like to use as your icon, this will typically be a .png file. If you already have your `.ico` rename it to `"favicon.ico"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`. 
 
@@ -294,6 +296,10 @@ Determine what image you would like to use as your icon, this will typically be 
 Once you finish the installation place your png of choice in `assets/resources/icons` and run the following script from within the icons directory where `<target_image_file>` refers to the `.png` you wish to convert. 
 
 `convert <target_image_file>.png -define icon::auto-resize=256,128,64,48,32,16 favicon.ico`
+
+If you followed these steps correctly, you will now have a favicon.ico file located within `assets/resources/icons`
+
+Note: Your favicon may not load properly if you have a stale cache. You can try force reloading your browsers cache memory (Firefox: ctr + shift + R; Chrome: ctrl + right reload button; Edge: ctrl + F5)
 
 ### Building for WASM
 
