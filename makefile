@@ -48,9 +48,11 @@ ios_release:
 #Build for Desktop
 macos:
 	echo $(TODO)
+	cargo build
 
 macos_release:
 	echo $(TODO)
+	cargo build --release
 
 linux:
 	cargo build

@@ -197,9 +197,12 @@ WIP
 
 ### Building for MacOS
 
-WIP
+
+To compile the binary you must run the following command.
 
 `make macos`
+
+If you wish to compile a release version use this command instead.
 
 `make macos_release`
 
