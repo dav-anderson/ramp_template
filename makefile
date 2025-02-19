@@ -47,28 +47,22 @@ ios_release:
 
 #Build for Desktop
 macos:
-	echo $(TODO)
 	cargo build
 
 macos_intel:
-	echo $(TODO)
 	cargo build --target x86_64-apple-darwin
 
 macos_aarch:
-	echo $(TODO)
 	cargo build --target aarch64-apple-darwin
 
 macos_release:
-	echo $(TODO)
-	cargo build --release
-
-macos_intel_release:
-	echo $(TODO)
+	$(call copy_if_exists,assets/resources/icons/macos_icon.icns,Webgpu.app/Contents/Resources/)
 	cargo build --release --target x86_64-apple-darwin
-
-macos_aarch_release:
-	echo $(TODO)
 	cargo build --release --target aarch64-apple-darwin
+	lipo -create -output webgpu \
+	target/x86_64-apple-darwin/release/webgpu \
+	target/aarch64-apple-darwin/release/webgpu
+	$(call copy_if_exists,webgpu,Webgpu.app/Contents/MacOS/)
 
 linux:
 	cargo build

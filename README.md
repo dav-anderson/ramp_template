@@ -183,7 +183,7 @@ make clean
 
 make run
 
-## Desktop for MacOS - WIP
+## Desktop for MacOS
 
 ### Prerequisites
 
@@ -191,11 +191,20 @@ make run
 
 -Homebrew
 
--Xcode
+-Xcode & Xcode build tools
 
 -Install the required build targets for both MacOS device chipsets
 
 `rustup target add x86_64-apple-darwin aarch64-apple-darwin`
+
+### (Optional) Configuring Desktop Icon
+
+Determine what image you would like to use as your icon, this will typically be a `.png` file. If you already have your `.icns` rename it to `"macos_icon.icns"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.icns` filetype, add your desktop icon `.png` to `assets/resources/icons`, rename it to `macos_icon.png` and then run the following script from within the `assets/resources/icons` directory
+
+`sips -s format icns macos_icon.png --out macos_icon.icns`
+
+The path to this icon is configured in your `Webgpu.app/Contents/Info.plist`. If you wish to rename this app, you will need to create your own `.app` directory with the appropriate changes and also modify the makefile & plist appropriately.
+
 
 ### Building for MacOS
 
@@ -205,29 +214,37 @@ To compile the binary you must run the following command.
 
 `make macos`
 
+This output will appear at the following path `target/debug/webgpu` and will only work on your native chipset.
+
 If you wish to compile a release version use this command instead.
 
 `make macos_release`
 
-However, if you wish to support both apple chipset architectures, meaning you want your program to be able to run on apple computers built prior to 2020, you must build for both chipsets.
+Apple uses two different chipset architectures for devices created before 2020 and after 2020. If you are building for release as shown above, your completed output will be `Webgpu.app` in the root of the project tree and will work on either chipset.
 
-To build for apple intel chipset (pre 2020):
+You can test this output by running the following while in the root directory, you should also see the desktop icon here in a file explorer if you configured it properly:
+
+`open Webgpu.app`
+
+### (Optional - Debug Only) Creating a Universal Binary
+
+Note: if you have run `make macos_release` the universal binary will have been handled for you.
+
+If you for some reason want to build for a specific architecture (Note that `make macos` automatically builds for your current chipset) see the following:
+
+(Debug only) To build for apple intel chipset (pre 2020):
 
 `make macos_intel`
 
-and
+This output will be available at `target/debug/webgpu`
 
-`make macos_intel_release`
-
-To build for apple silicon chipsets (M1, M2, M3):
+(Debug only) To build for apple silicon chipsets (M1, M2, M3):
 
 `make macos_aarch`
 
-and
+This output will be available at `target/debug/webgpu`
 
-`make macos_aarch_release`
-
-### Creating a Universal Binary
+once you have manually compiled both `make macos_aarch` and `make macos_intel` debug binaries you must combine them into a universal binary.
 
 A universal MacOS binary will run on both Intel and Apple Silicon chipsets. In order to do this you will need to first compile for both architectures as shown above.
 
@@ -240,9 +257,7 @@ target/x86_64-apple-darwin/release/<project_name> \
 target/aarch64-apple-darwin/release/<project_name>
 ```
 
-### (Optional) Configuring Desktop Icon
-
-
+The output binary will appear in the root of the project directory as `<project_name>` provided in the above script. By default this will be named `webgpu`.
 
 ## Desktop for Linux
 
@@ -293,7 +308,7 @@ Once you have done this, run the following command in your terminal to link the 
 
 ### (Optional) Adding a Desktop Icon to your .EXE
 
-Determine what image you would like to use as your icon, this will typically be a .png file. If you already have your `.ico` rename it to `"windows_icon.ico"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`. 
+Determine what image you would like to use as your icon, this will typically be a `.png` file. If you already have your `.ico` rename it to `"windows_icon.ico"` and place it inside of `assets/resources/icons`. If you first need to convert a `.png` to a `.ico` filetype, this requires you first install `imagemagick`. 
 
 `sudo apt install imagemagick`
 
