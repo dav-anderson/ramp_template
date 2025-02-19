@@ -1,3 +1,5 @@
 /target
 *.sw*
 /src/*.sw*
+webgpu
+Webgpu.app/Contents/MacOS/webgpu
