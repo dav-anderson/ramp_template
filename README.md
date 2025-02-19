@@ -193,10 +193,13 @@ make run
 
 -Xcode
 
-WIP
+-Install the required build targets for both MacOS device chipsets
+
+`rustup target add x86_64-apple-darwin aarch64-apple-darwin`
 
 ### Building for MacOS
 
+When building for MacOS you have a couple of different options. If you just want to build a binary that will run on the computer you are compiling on, you can simply do the following.
 
 To compile the binary you must run the following command.
 
@@ -205,6 +208,41 @@ To compile the binary you must run the following command.
 If you wish to compile a release version use this command instead.
 
 `make macos_release`
+
+However, if you wish to support both apple chipset architectures, meaning you want your program to be able to run on apple computers built prior to 2020, you must build for both chipsets.
+
+To build for apple intel chipset (pre 2020):
+
+`make macos_intel`
+
+and
+
+`make macos_intel_release`
+
+To build for apple silicon chipsets (M1, M2, M3):
+
+`make macos_aarch`
+
+and
+
+`make macos_aarch_release`
+
+### Creating a Universal Binary
+
+A universal MacOS binary will run on both Intel and Apple Silicon chipsets. In order to do this you will need to first compile for both architectures as shown above.
+
+Then you can use `lipo` to merge the binaries. The path will be dependent on whether or not you are merging either debug or release binaries but you should only need to do this when releasing a binary.
+
+release:
+```
+lipo -create -output <project_name> \
+target/x86_64-apple-darwin/release/<project_name> \
+target/aarch64-apple-darwin/release/<project_name>
+```
+
+### (Optional) Configuring Desktop Icon
+
+
 
 ## Desktop for Linux
 

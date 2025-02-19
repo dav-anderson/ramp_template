@@ -50,9 +50,25 @@ macos:
 	echo $(TODO)
 	cargo build
 
+macos_intel:
+	echo $(TODO)
+	cargo build --target x86_64-apple-darwin
+
+macos_aarch:
+	echo $(TODO)
+	cargo build --target aarch64-apple-darwin
+
 macos_release:
 	echo $(TODO)
 	cargo build --release
+
+macos_intel_release:
+	echo $(TODO)
+	cargo build --release --target x86_64-apple-darwin
+
+macos_aarch_release:
+	echo $(TODO)
+	cargo build --release --target aarch64-apple-darwin
 
 linux:
 	cargo build
