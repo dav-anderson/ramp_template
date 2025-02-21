@@ -41,9 +41,20 @@ android_release:
 #Build for IOS
 ios:
 	echo $(TODO)
+	cargo build --target aarch64-apple-ios
+
+ios_sim_intel:
+	echo $(TODO)
+	cargo build --target x86_64-apple-ios
+
+ios_sim_sil:
+	echo $(TODO)
+	cargo build --target aarch64-apple-ios-sim
 
 ios_release:
 	echo $(TODO)
+	cargo build --target aarch64-apple-ios --release
+
 
 #Build for Desktop
 macos:
@@ -62,7 +73,7 @@ macos_release:
 	lipo -create -output webgpu \
 	target/x86_64-apple-darwin/release/webgpu \
 	target/aarch64-apple-darwin/release/webgpu
-	$(call copy_if_exists,webgpu,Webgpu.app/Contents/MacOS/)
+	$(call copy_if_exists,webgpu,macos/Webgpu.app/Contents/MacOS/)
 
 linux:
 	cargo build

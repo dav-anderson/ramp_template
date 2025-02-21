@@ -125,6 +125,15 @@ Alternatively you may search for your app on the phones application tab and tap 
 
 -Xcode
 
+-IOS SDK with PATH properly configured
+
+-Install the required build target for IOS devices
+
+`rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim`
+
+
+### Building the Binary
+
 To build for IOS you must first have `cargo-lipo` installed on your system.
 
 ```cargo install cargo-lipo```
@@ -132,14 +141,6 @@ To build for IOS you must first have `cargo-lipo` installed on your system.
 Next you must install `cbindgen`.
 
 ```cargo install cbindgen```
-
-Add IOS targets to rustup
-
-```rustup target add aarch64-apple-ios x86_64-apple-ios```
-
-(Optional) Add simulator targets to rustup if desired
-
-```rustup target add aarch64-apple-ios-sim x86_64-apple-ios```
 
 Ensure the `Cargo.toml` specifies the a lib section (this has been provided by default)
 
@@ -175,6 +176,12 @@ Update "Library Search Paths" to include where your .a file is located
 
 Build and run your app on an IOS device or IOS simulator
 
+`make ios`
+
+`make ios_sim`
+
+`make ios_release`
+
 ### IOS Updated - WIP
 
 cd ios
@@ -203,7 +210,7 @@ Determine what image you would like to use as your icon, this will typically be 
 
 `sips -s format icns macos_icon.png --out macos_icon.icns`
 
-The path to this icon is configured in your `Webgpu.app/Contents/Info.plist`. If you wish to rename this app, you will need to create your own `.app` directory with the appropriate changes and also modify the makefile & plist appropriately.
+The path to this icon is configured in your `macos/Webgpu.app/Contents/Info.plist`. If you wish to rename this app, you will need to create your own `.app` directory with the appropriate changes and also modify the makefile & plist appropriately.
 
 
 ### Building for MacOS
@@ -220,9 +227,9 @@ If you wish to compile a release version use this command instead.
 
 `make macos_release`
 
-Apple uses two different chipset architectures for devices created before 2020 and after 2020. If you are building for release as shown above, your completed output will be `Webgpu.app` in the root of the project tree and will work on either chipset.
+Apple uses two different chipset architectures for devices created before 2020 and after 2020. If you are building for release as shown above, your completed output will be `Webgpu.app` in the `macos` directory and will work on either chipset.
 
-You can test this output by running the following while in the root directory, you should also see the desktop icon here in a file explorer if you configured it properly:
+You can test this output by running the following while in the macos directory, you should also see the desktop icon here in a file explorer if you configured it properly:
 
 `open Webgpu.app`
 
