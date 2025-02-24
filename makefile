@@ -45,11 +45,18 @@ ios:
 
 ios_sim_intel:
 	echo $(TODO)
+	$(call copy_if_exists,assets/resources/icons/ios_icon.png,ios/Webgpu.app/Resources/)
 	cargo build --target x86_64-apple-ios
+	$(call copy_if_exists,target/x86_64-apple-ios/debug/webgpu,ios/Webgpu.app/)
+
+
 
 ios_sim_sil:
 	echo $(TODO)
+	$(call copy_if_exists,assets/resources/icons/ios_icon.png,ios/Webgpu.app/Resources/)
 	cargo build --target aarch64-apple-ios-sim
+	$(call copy_if_exists,target/aarch64-apple-ios-sim/debug/webgpu,ios/Webgpu.app/)
+
 
 ios_release:
 	echo $(TODO)
@@ -67,7 +74,7 @@ macos_aarch:
 	cargo build --target aarch64-apple-darwin
 
 macos_release:
-	$(call copy_if_exists,assets/resources/icons/macos_icon.icns,Webgpu.app/Contents/Resources/)
+	$(call copy_if_exists,assets/resources/icons/macos_icon.icns,macos/Webgpu.app/Contents/Resources/)
 	cargo build --release --target x86_64-apple-darwin
 	cargo build --release --target aarch64-apple-darwin
 	lipo -create -output webgpu \

@@ -132,7 +132,33 @@ Alternatively you may search for your app on the phones application tab and tap 
 `rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim`
 
 
-### Building the Binary
+### Building the Binary for simulator
+
+If the Mac you using to run the simulator has a Silicone chipset run:
+
+`make ios_sim_sil`
+
+Otherwise, if your mac uses an intel chipset run:
+
+`make ios_sim_intel`
+
+Sign the app bundle
+
+`codesign --force --deep --sign - ios/Webgpu.app`
+
+Open the simulator
+
+`open -a simulator`
+
+Load the app into the simulator
+
+`xcrun simctl install booted ios/Webgpu.app`
+
+Launch the loaded app according to the CFBundleIdentifier provided in the `ios/Webgpu.app/Info.plist`
+
+`xcrun simctl launch booted com.example.webgpu`
+
+### Building a universal binary
 
 To build for IOS you must first have `cargo-lipo` installed on your system.
 
@@ -177,18 +203,6 @@ Update "Library Search Paths" to include where your .a file is located
 Build and run your app on an IOS device or IOS simulator
 
 `make ios`
-
-`make ios_sim`
-
-`make ios_release`
-
-### IOS Updated - WIP
-
-cd ios
-
-make clean
-
-make run
 
 ## Desktop for MacOS
 

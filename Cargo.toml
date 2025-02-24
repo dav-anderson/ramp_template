@@ -15,6 +15,13 @@ name="main"
 crate-type=["staticlib", "cdylib", "rlib"]
 
 ####################
+# ios config #
+####################
+
+[package.metadata.apple]
+minimum-deployment-target = "17.5"
+
+####################
 # winres config #
 ####################
 
