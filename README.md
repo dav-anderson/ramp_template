@@ -131,6 +131,10 @@ Alternatively you may search for your app on the phones application tab and tap 
 
 `rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim`
 
+### (Optional) Adding an App Icon
+
+Add a `.png` to `assets/resources/icons` named `ios_icon.png` of 1024x1024
+
 
 ### Building the Binary for simulator
 
@@ -158,7 +162,7 @@ Launch the loaded app according to the CFBundleIdentifier provided in the `ios/W
 
 `xcrun simctl launch booted com.example.webgpu`
 
-### Building a universal binary
+### Building a universal binary WIP
 
 To build for IOS you must first have `cargo-lipo` installed on your system.
 
@@ -200,7 +204,7 @@ Update the "Header Search Paths" to include the directory where your C headers a
 
 Update "Library Search Paths" to include where your .a file is located
 
-Build and run your app on an IOS device or IOS simulator
+Build and run your app on an IOS device
 
 `make ios`
 

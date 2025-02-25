@@ -4,22 +4,33 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Assets/ios_icon120.png</key>
+		<data>
+		f3U/i0Gvbw4Bm6IR0ed0xyQyVOI=
+		</data>
+		<key>Assets/ios_icon180.png</key>
+		<data>
+		BnOJDoDVlYz6XK6u3yD6BE3HQfY=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		TMTL2/2DlU+SJhk5/fv6ievrtA8=
-		</data>
-		<key>sample/ios_icon.png</key>
-		<data>
-		kPotuzGhR9tqKI8Y+hMkJcfvrvU=
+		3dCKSIzDb+O1kEi0KZ+67IXwxF0=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>sample/ios_icon.png</key>
+		<key>Assets/ios_icon120.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3QISlkNyQ5BfAhcmX5i9vGf+lVLB3bE0jqcUD4jLzMs=
+			0cHidj7D8Saf0GFeRbFYCffupwkgH/G7dILzXE8CCCc=
+			</data>
+		</dict>
+		<key>Assets/ios_icon180.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Yq7VDcOhcTalkMSP/YT/sIbn65ou4PAEf+Yro+MLfzw=
 			</data>
 		</dict>
 	</dict>

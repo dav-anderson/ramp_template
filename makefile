@@ -8,6 +8,7 @@ AN_IC =assets/resources/icons/android_icon
 FV_IC=assets/resources/icons/favicon.ico
 AN_IC_TAR =android/app/src/main/res/
 TODO=this feature is not yet fully implemented
+IOS_IC=assets/resources/icons/ios_icon.png
 
 #Functions
 
@@ -26,6 +27,13 @@ define android_icons
 	$(call copy_if_exists,$(AN_IC)192.png,$(AN_IC_TAR)mipmap-xxxhdpi/ic_launcher.png)
 endef
 
+define resize_ios_icon
+		sips -z 120 120 $(IOS_IC) --out ios/Webgpu.app/Assets/ios_icon120.png; \
+		sips -z 180 180 $(IOS_IC) --out ios/Webgpu.app/Assets/ios_icon180.png; \
+		echo "resized ios icon"; \
+
+endef
+
 
 #Make targets
 
@@ -41,11 +49,13 @@ android_release:
 #Build for IOS
 ios:
 	echo $(TODO)
+	$(call resize_ios_icon)
 	cargo build --target aarch64-apple-ios
+	$(call copy_if_exists,target/aarch64-apple-ios/debug/webgpu,ios/Webgpu.app/)
 
 ios_sim_intel:
 	echo $(TODO)
-	$(call copy_if_exists,assets/resources/icons/ios_icon.png,ios/Webgpu.app/Resources/)
+	$(call resize_ios_icon)
 	cargo build --target x86_64-apple-ios
 	$(call copy_if_exists,target/x86_64-apple-ios/debug/webgpu,ios/Webgpu.app/)
 
@@ -53,14 +63,17 @@ ios_sim_intel:
 
 ios_sim_sil:
 	echo $(TODO)
-	$(call copy_if_exists,assets/resources/icons/ios_icon.png,ios/Webgpu.app/Resources/)
+	$(call resize_ios_icon)
 	cargo build --target aarch64-apple-ios-sim
 	$(call copy_if_exists,target/aarch64-apple-ios-sim/debug/webgpu,ios/Webgpu.app/)
 
 
 ios_release:
 	echo $(TODO)
+	$(call resize_ios_icon)
 	cargo build --target aarch64-apple-ios --release
+	$(call copy_if_exists,target/aarch64-apple-ios/debug/webgpu,ios/Webgpu.app/)
+
 
 
 #Build for Desktop
