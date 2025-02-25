@@ -115,7 +115,7 @@ Once the streaming install has completed you can test your app in shell with (th
 
 Alternatively you may search for your app on the phones application tab and tap to run like you would normally.
 
-## IOS - WIP
+## IOS
 
 ### Prerequisites
 
@@ -162,51 +162,43 @@ Launch the loaded app according to the CFBundleIdentifier provided in the `ios/W
 
 `xcrun simctl launch booted com.example.webgpu`
 
-### Building a universal binary WIP
-
-To build for IOS you must first have `cargo-lipo` installed on your system.
-
-```cargo install cargo-lipo```
-
-Next you must install `cbindgen`.
-
-```cargo install cbindgen```
-
-Ensure the `Cargo.toml` specifies the a lib section (this has been provided by default)
-
-```
-[lib]
-name = "library_name"
-crate-type = ["cdylib"] # or "staticlib" if you want a static library rather than dynamic
-```
-
-Build your library with cargo lipo (specify a release build with the proper flag: `--release`)
-
-```cargo lipo```
-
-This will compile your rust library into `library_name.a` output at `target/universal/debug` or `target/universal/release`
-
-Create a C header using the library name you have specificed in the lib section of the `Cargo.toml`
-
-```cbindgen --config cbindgen.toml --output include/<library_name>.h```
-
-Create an Xcode project in which you wish to use your Rust Library
-
-Copy the dynamic or static library into your Xcode's project library folder
-
-Add the library to your target's "Link Binary With Libraries" in the build phases
-
-Include your C header and ensure Xcode can find it
-
-Make sure to link any dependencies required for your library or framework with Xcode project
-
-Update the "Header Search Paths" to include the directory where your C headers are located
-
-Update "Library Search Paths" to include where your .a file is located
+### Building and deploying IOS binary
 
 Build and run your app on an IOS device
 
 `make ios`
+
+or
+
+`make_ios_release`
+
+Generate a signing certificate. Open `Keychain Access` for MacOS. Go to `Certificate Assistant > Request a Certificate from a Certificate Authority`.
+
+Use your Apple ID email and save the `.certSigningRequest`
+
+Add the APP ID from `ios/Webgpu.app/Info.plist` to your `developer.apple.com` account. By default this ID is set to `com.example.webgpu`
+
+Upload your `.certSigningRequest`, download the `.cer` file and double click it to install it to your keychain
+
+Register your device UDID (try `idevice_id -l`)
+
+Create a provisioning profile (Development, link your Apple ID, certificate, and device;) download it (something like `dev.mobileprovision`)
+
+Place the mobile provision within your `.app`
+
+`cp dev.mobileprovision ios/Webgpu.app/embedded.mobileprovision`
+
+Sign the binary with your developer certificate
+
+`codesign -f -s "iphone developer: Your Name (ID)" ios/Webgpu.app`
+
+verify your signature
+
+`codesign -vvv ios/Webgpu.app`
+
+You may now install and launch your `.app` bundle to a device tethered via USB with 
+
+`ios-deploy --bundle ios/Webgpu.app`
 
 ## Desktop for MacOS
 
