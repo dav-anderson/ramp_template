@@ -8,7 +8,7 @@ build = "build.rs"
 rust_on_rails = "3.0.0"
 
 [build-dependencies]
-winresource = "0.1"
+embed-resources = "3.0"
 
 [lib]
 name="main"
