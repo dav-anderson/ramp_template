@@ -6,7 +6,7 @@
     <key>CFBundleName</key>
     <string>Webgpu</string>
     <key>CFBundleIdentifier</key>
-    <string>com.example.webgpu</string>
+    <string>com.ramp.webgpu</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleExecutable</key>
