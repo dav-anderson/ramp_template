@@ -1,5 +1,5 @@
 [package]
-name = "webgpu"
+name = "ramp"
 version = "0.1.0"
 edition = "2021"
 build = "build.rs"
@@ -26,17 +26,18 @@ minimum-deployment-target = "17.5"
 ####################
 
 [package.metadata.winres]
-OriginalFilename = "webgpu.exe"
+OriginalFilename = "ramp.exe"
 
 ####################
 # cargo apk config #
 ####################
 
 [package.metadata.android]
-package = "com.webgpu.pkg"
+package = "com.ramp.pkg"
 build_targets = [ "aarch64-linux-android" ]
 resources = "android/app/src/main/res"
 assets = "assets"
+apk_name = "ramp"
 
 [package.metadata.android.sdk]
 min_sdk_version = 28
