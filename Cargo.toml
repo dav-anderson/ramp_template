@@ -2,10 +2,11 @@
 name = "ramp"
 version = "0.1.0"
 edition = "2021"
-build = "build.rs"
+license = "MIT"
 
 [dependencies]
-rust_on_rails = "3.0.0"
+pelican_ui = "1.1.7"
+pelican_ui_std = "0.2.8"
 
 [build-dependencies]
 embed-resource = "3.0.2"
@@ -13,6 +14,13 @@ embed-resource = "3.0.2"
 [lib]
 name="main"
 crate-type=["staticlib", "cdylib", "rlib"]
+
+####################
+# wasm config #
+####################
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { version = "1.43.0", features = ["rt-multi-thread", "sync", "time", "net"] }
 
 ####################
 # ios config #
@@ -49,6 +57,9 @@ name = "android.permission.INTERNET"
 [package.metadata.android.application]
 icon = "@mipmap/ic_launcher"
 label = "ramp_template"
+
+[package.metadata.deb]
+maintainer-scripts = "debian/"
 
 # See https://developer.android.com/guide/topics/manifest/meta-data-element
 #
