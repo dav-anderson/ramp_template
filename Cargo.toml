@@ -5,8 +5,8 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-pelican_ui = "1.1.7"
-pelican_ui_std = "0.2.8"
+pelican_ui = "1.1.12"
+pelican_ui_std = "0.2.9"
 
 [build-dependencies]
 embed-resource = "3.0.2"
