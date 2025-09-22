@@ -1,6 +1,5 @@
-use pelican_ui::{AndroidApp, Component, Context, Plugins, Plugin, maverick_start, start, Application, PelicanEngine, MaverickOS};
+use pelican_ui::{AndroidApp, Component, Context, Plugins, Plugin, start, Application};
 use pelican_ui::drawable::{Drawable, Component, Align};
-use pelican_ui::runtime::{Services, ServiceList};
 use pelican_ui::layout::{Layout, SizeRequest, Area};
 use pelican_ui::events::OnEvent;
 use std::collections::BTreeMap;

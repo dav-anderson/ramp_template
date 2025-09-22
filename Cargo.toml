@@ -5,8 +5,8 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-pelican_ui = "1.1.12"
-pelican_ui_std = "0.2.9"
+pelican_ui = "1.1.18"
+pelican_ui_std = "0.2.16"
 
 [build-dependencies]
 embed-resource = "3.0.2"
@@ -56,7 +56,7 @@ name = "android.permission.INTERNET"
 
 [package.metadata.android.application]
 icon = "@mipmap/ic_launcher"
-label = "ramp_template"
+label = "ramp"
 
 [package.metadata.deb]
 maintainer-scripts = "debian/"
