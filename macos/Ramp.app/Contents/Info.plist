@@ -4,9 +4,9 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Webgpu</string>
+    <string>Ramp</string>
     <key>CFBundleExecutable</key>
-    <string>webgpu</string>
+    <string>ramp</string>
     <key>CFBundleIconFile</key>
     <string>macos_icon</string>
 </dict>

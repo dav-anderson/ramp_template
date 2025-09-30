@@ -4,13 +4,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Webgpu</string>
+    <string>Ramp</string>
     <key>CFBundleIdentifier</key>
-    <string>com.ramp.webgpu</string>
+    <string>com.ramp.ramp</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleExecutable</key>
-    <string>webgpu</string>
+    <string>ramp</string>
     <key>CFBundlePackageType</key>
     <string>AAPL</string>
  	<key>CFBundleShortVersionString</key>
