@@ -28,10 +28,6 @@ extern "C" {}
 #[link(name = "Carbon", kind = "framework")]
 extern "C" {}
 
-#[cfg(any(target_os = "ios", target_os = "macos"))]
-#[link(name = "main", kind = "static")]
-extern "C" {}
-
 #[cfg(target_os = "ios")]
 #[link(name = "UIKit", kind = "framework")]
 extern "C" {}
