@@ -1,5 +1,3 @@
-
-
 #[cfg(any(target_os = "ios", target_os = "macos"))]
 #[link(name = "PhotosUI", kind = "framework")]
 extern "C" {}
@@ -72,9 +70,9 @@ use pelican_ui::start;
 mod examples;
 use examples::{
     ice_cream::IceCreamApp,
-    plants::PlantGrowerApp,
-    motorcycle::MotorcycleApp,
+    // plants::PlantGrowerApp,
+    // motorcycle::MotorcycleApp,
 };
 
 // change the struct here to start a different example.
-start!(MotorcycleApp);
+start!(IceCreamApp);
